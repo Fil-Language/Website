@@ -1,23 +1,23 @@
 import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
-  name: 'AstroWind',
+  name: 'Fil',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://fil.ktraini.com',
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'AstroWind — Free template for create a website with Astro + Tailwind CSS',
+  title: 'Fil',
   description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
+    'Un langage de programmation pour développer des outils surpuissants',
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  language: 'en',
+  language: 'fr',
   textDirection: 'ltr',
 
-  dateFormatter: new Intl.DateTimeFormat('en', {
+  dateFormatter: new Intl.DateTimeFormat('fr', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -32,13 +32,13 @@ const CONFIG = {
     postsPerPage: 4,
 
     list: {
-      pathname: 'blog', // blog main path, you can change this to "articles" (/articles)
+      pathname: 'doc', // doc main path
       noindex: false,
       disabled: false,
     },
 
     post: {
-      pathname: '', // empty for /some-post, value for /pathname/some-post
+      pathname: 'doc', // value for /doc/some-post
       noindex: false,
       disabled: false,
     },
