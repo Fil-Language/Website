@@ -1,0 +1,3 @@
+[submodule "src/pages/documentation"]
+	path = src/pages/documentation
+	url = git@github.com:Fil-Language/Documentation.git
