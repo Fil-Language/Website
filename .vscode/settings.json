@@ -12,5 +12,8 @@
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///home/kevin/DATA/Programmation/FIL/Website/.github/workflows/deploy.yml"
   }
 }
