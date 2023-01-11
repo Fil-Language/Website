@@ -8,16 +8,15 @@ const CONFIG = {
   trailingSlash: false,
 
   title: 'Fil',
-  description:
-    'Un langage de programmation pour développer des outils surpuissants',
+  description: 'Un langage de programmation pour développer des outils surpuissants',
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
-  language: 'fr',
+  language: 'en',
   textDirection: 'ltr',
 
-  dateFormatter: new Intl.DateTimeFormat('fr', {
+  dateFormatter: new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
