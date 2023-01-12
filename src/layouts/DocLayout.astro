@@ -1,0 +1,51 @@
+---
+import Footer from '~/components/widgets/Footer.astro';
+import Header from '~/components/widgets/Header.astro';
+import Layout from '~/layouts/BaseLayout.astro';
+import { DocProp, MetaSEO } from '~/types';
+
+export interface Props {
+  meta?: MetaSEO;
+  doc?: DocProp[];
+}
+
+const { meta, doc } = Astro.props;
+
+if (meta) {
+  meta.title += ' - Documentation';
+}
+---
+
+<Layout {meta}>
+  <Header />
+  <main class="flex min-h-screen w-full md:w-3/4 mx-auto">
+    <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
+      <ul class="pl-5 list-disc">
+        {
+          doc &&
+            doc.map((item) => {
+              return (
+                <li>
+                  <a href={item.link}>{item.title}</a>
+                  <ul class="pl-5 list-disc">
+                    {item.sub &&
+                      item.sub.map((sub) => {
+                        return (
+                          <li>
+                            <a href={sub.link}>{sub.title}</a>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </li>
+              );
+            })
+        }
+      </ul>
+    </div>
+    <div class="w-3/4 mx-auto">
+      <slot />
+    </div>
+  </main>
+  <Footer />
+</Layout>

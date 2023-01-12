@@ -10,3 +10,9 @@ export interface MetaSEO {
   ogTitle?: string;
   ogType?: string;
 }
+
+export interface DocProp {
+  title: string;
+  link?: string;
+  sub?: DocProp[];
+}
