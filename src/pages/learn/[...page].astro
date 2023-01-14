@@ -1,0 +1,27 @@
+---
+import Layout from '~/layouts/BlogLayout.astro';
+import { learns } from '~/content/learn/learn.astro';
+import { SITE } from '~/config.mjs';
+
+const { page } = Astro.params;
+
+export function getStaticPaths() {
+  return learns;
+}
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+
+const current = learns.find((item) => {
+  return item.params.page === page;
+});
+
+const Content = current?.content;
+---
+
+<Layout blog={learns} meta={meta} page={current?.title} title="Learn">
+  {Content && <Content />}
+</Layout>
