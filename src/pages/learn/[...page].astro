@@ -2,11 +2,12 @@
 import Layout from '~/layouts/BlogLayout.astro';
 import { learns } from '~/content/learn/learn.astro';
 import { SITE } from '~/config.mjs';
+import { blogParams } from '~/types';
 
 const { page } = Astro.params;
 
 export function getStaticPaths() {
-  return learns;
+  return blogParams(learns);
 }
 
 const meta = {
@@ -16,12 +17,12 @@ const meta = {
 };
 
 const current = learns.find((item) => {
-  return item.params.page === page;
+  return item.params?.page === page;
 });
 
 const Content = current?.content;
 ---
 
-<Layout blog={learns} meta={meta} page={current?.title} title="Learn">
-  {Content && <Content />}
+<Layout blog={learns} meta={meta} page={current?.title} title="Learn" base="/learn">
+  {Content ? <Content /> : 'Content not found'}
 </Layout>

@@ -1,4 +1,5 @@
 ---
+import BlogLink from '~/components/widgets/BlogLink.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/BaseLayout.astro';
@@ -9,9 +10,10 @@ export interface Props {
   blog?: BlogProp[];
   page?: string;
   title?: string;
+  base?: string;
 }
 
-const { meta, blog, page, title } = Astro.props;
+const { meta, blog, page, title, base } = Astro.props;
 
 if (meta) {
   meta.title += ' - ' + title + ' - ' + page;
@@ -23,26 +25,7 @@ if (meta) {
   <main class="flex min-h-screen w-full md:w-3/4 mx-auto">
     <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
       <ul class="pl-5 list-disc">
-        {
-          blog &&
-            blog.map((item) => {
-              return (
-                <li>
-                  <a href={'/doc' + item.link}>{item.title}</a>
-                  <ul class="pl-5 list-disc">
-                    {item.sub &&
-                      item.sub.map((sub) => {
-                        return (
-                          <li>
-                            <a href={sub.link}>{sub.title}</a>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                </li>
-              );
-            })
-        }
+        {blog && blog.map((item) => <BlogLink base={base} blog={item} />)}
       </ul>
     </div>
     <div class="w-3/4 mx-auto">
