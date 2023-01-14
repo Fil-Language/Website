@@ -1,0 +1,6 @@
+[submodule "src/content/learn"]
+	path = src/content/learn
+	url = git@github.com:Fil-Language/Tutorial.git
+[submodule "src/content/documentation"]
+	path = src/content/documentation
+	url = git@github.com:Fil-Language/Documentation.git
