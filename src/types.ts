@@ -13,10 +13,10 @@ export interface MetaSEO {
   ogType?: string;
 }
 
-export interface DocProp {
+export interface BlogProp {
   title: string;
   params: { page: string | undefined };
   link?: string;
   content?: AstroComponentFactory;
-  sub?: DocProp[];
+  sub?: BlogProp[];
 }

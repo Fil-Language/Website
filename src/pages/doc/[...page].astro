@@ -1,5 +1,5 @@
 ---
-import Layout from '~/layouts/DocLayout.astro';
+import Layout from '~/layouts/BlogLayout.astro';
 import { docs } from '~/content/documentation/doc.astro';
 import { SITE } from '~/config.mjs';
 
@@ -22,6 +22,6 @@ const current = docs.find((item) => {
 const Content = current?.content;
 ---
 
-<Layout doc={docs} meta={meta} page={current?.title}>
+<Layout blog={docs} meta={meta} page={current?.title} title='Doc'>
   {Content && <Content />}
 </Layout>

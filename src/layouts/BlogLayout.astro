@@ -2,18 +2,19 @@
 import Footer from '~/components/widgets/Footer.astro';
 import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/BaseLayout.astro';
-import { DocProp, MetaSEO } from '~/types';
+import { BlogProp, MetaSEO } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
-  doc?: DocProp[];
+  blog?: BlogProp[];
   page?: string;
+  title?: string;
 }
 
-const { meta, doc, page } = Astro.props;
+const { meta, blog, page, title } = Astro.props;
 
 if (meta) {
-  meta.title += ' - Doc - ' + page;
+  meta.title += ' - ' + title + ' - ' + page;
 }
 ---
 
@@ -23,8 +24,8 @@ if (meta) {
     <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
       <ul class="pl-5 list-disc">
         {
-          doc &&
-            doc.map((item) => {
+          blog &&
+            blog.map((item) => {
               return (
                 <li>
                   <a href={'/doc' + item.link}>{item.title}</a>
