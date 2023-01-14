@@ -1,0 +1,29 @@
+---
+import { BlogProp } from '~/types';
+import BlogLink from '~/components/widgets/BlogLink.astro';
+
+export interface Props {
+  blog: BlogProp;
+  base?: string;
+}
+
+const { blog, base } = Astro.props;
+---
+
+<li>
+  <a href={blog.link && base + '/' + blog.link}>{blog.title}</a>
+  {
+    blog.sub && (
+      <ul class="pl-5 list-disc">
+        {blog.sub.map((sub) => {
+          let nBase = '';
+          if (blog.subBase) {
+            nBase = base + '/' + blog.subBase;
+          }
+
+          return <BlogLink blog={sub} base={nBase} />;
+        })}
+      </ul>
+    )
+  }
+</li>

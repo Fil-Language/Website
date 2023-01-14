@@ -1,0 +1,28 @@
+---
+import Layout from '~/layouts/BlogLayout.astro';
+import { docs } from '~/content/documentation/doc.astro';
+import { SITE } from '~/config.mjs';
+import { blogParams } from '~/types';
+
+const { page } = Astro.params;
+
+export function getStaticPaths() {
+  return blogParams(docs);
+}
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+
+const current = docs.find((item) => {
+  return item.params?.page === page;
+});
+
+const Content = current?.content;
+---
+
+<Layout blog={docs} meta={meta} page={current?.title} title="Doc" base="/doc">
+  {Content ? <Content /> : 'Content not found'}
+</Layout>

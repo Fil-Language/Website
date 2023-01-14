@@ -1,0 +1,48 @@
+---
+import { BlogProp } from '~/types';
+import { Content as introduction } from './introduction.md';
+import { Content as conventions } from './conventions.md';
+import { Content as control } from './control.md';
+import { Content as functions } from './functions.md';
+import { Content as stl } from './stl.md';
+import { Content as grammar } from './grammar.md';
+
+export const docs: BlogProp[] = [
+  {
+    title: 'Introduction',
+    params: { page: undefined },
+    link: '',
+    content: introduction,
+  },
+  {
+    title: 'Conventions',
+    link: 'conventions',
+    params: { page: 'conventions' },
+    content: conventions,
+  },
+  {
+    title: 'Control structures',
+    link: 'control-structures',
+    params: { page: 'control-structures' },
+    content: control,
+  },
+  {
+    title: 'Functions',
+    link: 'functions',
+    params: { page: 'functions' },
+    content: functions,
+  },
+  {
+    title: 'STL',
+    link: 'stl',
+    params: { page: 'stl' },
+    content: stl,
+  },
+  {
+    title: 'Grammar',
+    link: 'grammar',
+    params: { page: 'grammar' },
+    content: grammar,
+  },
+];
+---

@@ -1,6 +1,7 @@
 ---
+import { Picture } from '@astrojs/image/components';
 ---
 
 <span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 AstroWind</span
->
+  <Picture src={import('~/assets/images/default.png')} widths={[70]} sizes="70px" alt="Fil" />
+</span>

@@ -1,0 +1,36 @@
+---
+import BlogLink from '~/components/widgets/BlogLink.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import Header from '~/components/widgets/Header.astro';
+import Layout from '~/layouts/BaseLayout.astro';
+import { BlogProp, MetaSEO } from '~/types';
+
+export interface Props {
+  meta?: MetaSEO;
+  blog?: BlogProp[];
+  page?: string;
+  title?: string;
+  base?: string;
+}
+
+const { meta, blog, page, title, base } = Astro.props;
+
+if (meta) {
+  meta.title += ' - ' + title + ' - ' + page;
+}
+---
+
+<Layout {meta}>
+  <Header />
+  <main class="flex min-h-screen w-full md:w-3/4 mx-auto">
+    <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
+      <ul class="pl-5 list-disc">
+        {blog && blog.map((item) => <BlogLink base={base} blog={item} />)}
+      </ul>
+    </div>
+    <div class="w-3/4 mx-auto">
+      <slot />
+    </div>
+  </main>
+  <Footer />
+</Layout>
