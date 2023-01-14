@@ -1,3 +1,5 @@
+import { AstroComponentFactory } from "astro/dist/runtime/server";
+
 export interface MetaSEO {
   title?: string;
   description?: string;
@@ -13,6 +15,8 @@ export interface MetaSEO {
 
 export interface DocProp {
   title: string;
+  params: { page: string | undefined };
   link?: string;
+  content?: AstroComponentFactory;
   sub?: DocProp[];
 }

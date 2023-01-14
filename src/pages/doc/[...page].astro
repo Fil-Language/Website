@@ -1,0 +1,27 @@
+---
+import Layout from '~/layouts/DocLayout.astro';
+import { docs } from '~/content/documentation/doc.astro';
+import { SITE } from '~/config.mjs';
+
+const { page } = Astro.params;
+
+export function getStaticPaths() {
+  return docs;
+}
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+
+const current = docs.find((item) => {
+  return item.params.page === page;
+});
+
+const Content = current?.content;
+---
+
+<Layout doc={docs} meta={meta} page={current?.title}>
+  {Content && <Content />}
+</Layout>

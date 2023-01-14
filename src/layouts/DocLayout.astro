@@ -7,12 +7,13 @@ import { DocProp, MetaSEO } from '~/types';
 export interface Props {
   meta?: MetaSEO;
   doc?: DocProp[];
+  page?: string;
 }
 
-const { meta, doc } = Astro.props;
+const { meta, doc, page } = Astro.props;
 
 if (meta) {
-  meta.title += ' - Documentation';
+  meta.title += ' - Doc - ' + page;
 }
 ---
 
@@ -26,7 +27,7 @@ if (meta) {
             doc.map((item) => {
               return (
                 <li>
-                  <a href={item.link}>{item.title}</a>
+                  <a href={'/doc' + item.link}>{item.title}</a>
                   <ul class="pl-5 list-disc">
                     {item.sub &&
                       item.sub.map((sub) => {
