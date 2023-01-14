@@ -1,6 +1,0 @@
-[submodule "src/pages/documentation"]
-	path = src/pages/documentation
-	url = git@github.com:Fil-Language/Documentation.git
-[submodule "src/pages/learn"]
-	path = src/pages/learn
-	url = git@github.com:Fil-Language/Tutorial.git
