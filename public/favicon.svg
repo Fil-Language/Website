@@ -1,27 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-	.st1{fill:url(#SVGID_2_);}
-	.st2{fill:url(#SVGID_3_);}
-</style>
-<g>
-	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-72.9781" y1="672.9781" x2="634.1287" y2="-34.1287">
-		<stop  offset="0" style="stop-color:#C0539A"/>
-		<stop  offset="1" style="stop-color:#5089C7"/>
-	</linearGradient>
-	<polygon class="st0" points="0,1000 0,200 200,0 1000,0 800,200 400,200 200,400 600,400 400,600 200,600 200,800 	"/>
-	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="200" y1="1200" x2="1200" y2="200">
-		<stop  offset="0" style="stop-color:#A21874"/>
-		<stop  offset="1" style="stop-color:#0E4997"/>
-	</linearGradient>
-	<polyline class="st1" points="400,800 200,800 0,1000 800,1000 1000,800 1000,0 800,200 800,600 600,800 	"/>
-	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="500" y1="1000" x2="500" y2="400">
-		<stop  offset="0" style="stop-color:#E69AC3"/>
-		<stop  offset="1" style="stop-color:#BDAAD3"/>
-	</linearGradient>
-	<polygon class="st2" points="600,400 600,1000 400,1000 400,600 	"/>
-</g>
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 450">
+  <!--
+    Logo for Fil
+
+    Credit : Thomas "Durbo" VATE 
+      my website : https://durbo.vercel.app
+      my github : https://github.com/Durb0
+  -->
+  <circle id="i_dot" data-name="i dot" cx="225" cy="225" r="25"/>
+  <path d="M125,450c-30.41,0-61.91-14.06-86.43-38.57S0,355.41,0,325V125C0,94.59,14.06,63.09,38.57,38.57S94.59,0,125,0s61.91,14.06,86.43,38.57S250,94.59,250,125H200c0-17-8.94-36.09-23.93-51.07S142,50,125,50,88.91,58.94,73.93,73.93,50,108,50,125V325c0,17,8.94,36.09,23.93,51.07S108,400,125,400Z"/>
+  <path d="M325,450c-30.41,0-61.91-14.06-86.43-38.57S200,355.41,200,325h50c0,17,8.95,36.09,23.93,51.07S308,400,325,400s36.09-8.95,51.07-23.93S400,342,400,325V125c0-17-8.95-36.09-23.93-51.07S342,50,325,50V0c30.41,0,61.91,14.06,86.43,38.57S450,94.59,450,125V325c0,30.41-14.06,61.91-38.57,86.43S355.41,450,325,450Z"/>
+  <rect x="25" y="200" width="100" height="50"/>
 </svg>
