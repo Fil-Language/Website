@@ -55,6 +55,7 @@ export default defineConfig({
 
   markdown: {
     extendDefaultPlugins: true,
+    syntaxHighlight: 'prism',
   },
 
   vite: {
