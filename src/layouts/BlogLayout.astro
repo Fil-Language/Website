@@ -24,9 +24,7 @@ if (meta) {
   <Header />
   <main class="flex min-h-screen w-full md:w-3/4 mx-auto">
     <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
-      <ul class="pl-5 list-disc">
-        {blog && blog.map((item) => <BlogLink base={base} blog={item} />)}
-      </ul>
+      {blog && blog.map((item) => <BlogLink base={base} blog={item} />)}
     </div>
     <div class="w-3/4 mx-auto">
       <slot />

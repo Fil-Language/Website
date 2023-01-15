@@ -1,5 +1,5 @@
 ---
-import { BlogProp } from '~/types';
+import { blogLink, BlogProp } from '~/types';
 import BlogLink from '~/components/widgets/BlogLink.astro';
 
 export interface Props {
@@ -8,22 +8,19 @@ export interface Props {
 }
 
 const { blog, base } = Astro.props;
+
+const link = blogLink(blog);
 ---
 
-<li>
-  <a href={blog.link && base + '/' + blog.link}>{blog.title}</a>
+<div>
+  <a href={base + link}>{blog.title}</a>
   {
     blog.sub && (
-      <ul class="pl-5 list-disc">
+      <div class="ml-5">
         {blog.sub.map((sub) => {
-          let nBase = '';
-          if (blog.subBase) {
-            nBase = base + '/' + blog.subBase;
-          }
-
-          return <BlogLink blog={sub} base={nBase} />;
+          return <BlogLink blog={sub} base={base} />;
         })}
-      </ul>
+      </div>
     )
   }
-</li>
+</div>

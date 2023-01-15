@@ -11,38 +11,37 @@ export const docs: BlogProp[] = [
   {
     title: 'Introduction',
     params: { page: undefined },
-    link: '',
     content: introduction,
   },
   {
     title: 'Conventions',
-    link: 'conventions',
     params: { page: 'conventions' },
     content: conventions,
   },
   {
     title: 'Control structures',
-    link: 'control-structures',
     params: { page: 'control-structures' },
     content: control,
   },
   {
     title: 'Functions',
-    link: 'functions',
     params: { page: 'functions' },
     content: functions,
   },
   {
     title: 'STL',
-    link: 'stl',
     params: { page: 'stl' },
     content: stl,
   },
   {
-    title: 'Grammar',
-    link: 'grammar',
-    params: { page: 'grammar' },
-    content: grammar,
+    title: 'Advanced',
+    sub: [
+      {
+        title: 'Grammar',
+        params: { page: 'advanced/grammar' },
+        content: grammar,
+      },
+    ],
   },
 ];
 ---
