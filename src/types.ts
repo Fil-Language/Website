@@ -45,5 +45,34 @@ export const blogLink = (blog: BlogProp) => {
     else return `/${blog.params.page}`
   }
 
-  return "/"
+  return undefined;
+}
+
+export const getCurrentBlog = (blogs: BlogProp[], page: string | undefined) => {
+  for (const blog of blogs) {
+    if (blog.params) {
+      if (blog.params.page === page) return blog;
+    }
+
+    if (blog.sub) {
+      const current = getCurrentBlog(blog.sub, page);
+      if (current) return current;
+    }
+  }
+
+  return undefined;
+}
+
+export const isCurrentBlog = (blog: BlogProp, current: BlogProp | undefined) => {
+  if (blog.params && current?.params) {
+    return blog.params.page === current.params.page;
+  }
+
+  if (blog.sub) {
+    for (const sub of blog.sub) {
+      if (isCurrentBlog(sub, current)) return true;
+    }
+  }
+
+  return false;
 }

@@ -3,12 +3,12 @@ import BlogLink from '~/components/widgets/BlogLink.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/BaseLayout.astro';
-import { BlogProp, MetaSEO } from '~/types';
+import { BlogProp, MetaSEO, isCurrentBlog } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
   blog?: BlogProp[];
-  page?: string;
+  page?: BlogProp;
   title?: string;
   base?: string;
 }
@@ -16,7 +16,7 @@ export interface Props {
 const { meta, blog, page, title, base } = Astro.props;
 
 if (meta) {
-  meta.title += ' - ' + title + ' - ' + page;
+  meta.title += ' - ' + title + ' - ' + page?.title;
 }
 ---
 
@@ -24,7 +24,7 @@ if (meta) {
   <Header />
   <main class="flex min-h-screen w-full md:w-3/4 mx-auto">
     <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 md:w-1/5 rounded-r md:rounded">
-      {blog && blog.map((item) => <BlogLink base={base} blog={item} />)}
+      {blog && blog.map((item) => <BlogLink base={base} blog={item} current={isCurrentBlog(item, page)} />)}
     </div>
     <div class="w-3/4 mx-auto">
       <slot />
@@ -32,3 +32,14 @@ if (meta) {
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const elts = document.querySelectorAll('[to-expand]');
+  elts.forEach((elt) => {
+    elt.addEventListener('click', () => {
+      elt.classList.toggle('rotate-90');
+      elt.parentElement?.nextElementSibling?.classList.toggle('hidden');
+      elt.parentElement?.nextElementSibling?.classList.toggle('block');
+    });
+  });
+</script>

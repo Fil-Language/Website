@@ -1,22 +1,33 @@
 ---
 import { blogLink, BlogProp } from '~/types';
 import BlogLink from '~/components/widgets/BlogLink.astro';
+import { Icon } from 'astro-icon';
 
 export interface Props {
   blog: BlogProp;
   base?: string;
+  current?: boolean;
 }
 
-const { blog, base } = Astro.props;
+const { blog, base, current = false } = Astro.props;
 
 const link = blogLink(blog);
 ---
 
-<div>
-  <a href={base + link}>{blog.title}</a>
+<div class={current ? 'underline' : ''}>
+  <div class="flex items-center">
+    {
+      blog.sub ? (
+        <Icon name="ic:round-play-arrow" class={'w-5 h-5 hover:cursor-pointer ' + (current && 'rotate-90')} to-expand />
+      ) : (
+        <Icon name="carbon:dot-mark" class="w-5 h-5" />
+      )
+    }
+    <a href={link && base + link}>{blog.title}</a>
+  </div>
   {
     blog.sub && (
-      <div class="ml-5">
+      <div class={'ml-5 ' + (current ? 'block' : 'hidden')}>
         {blog.sub.map((sub) => {
           return <BlogLink blog={sub} base={base} />;
         })}
