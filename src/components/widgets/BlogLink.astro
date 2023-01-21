@@ -1,29 +1,38 @@
 ---
-import { BlogProp } from '~/types';
+import { blogLink, BlogProp, isCurrentBlog } from '~/types';
 import BlogLink from '~/components/widgets/BlogLink.astro';
+import { Icon } from 'astro-icon';
 
 export interface Props {
   blog: BlogProp;
   base?: string;
+  page?: BlogProp;
 }
 
-const { blog, base } = Astro.props;
+const { blog, base, page } = Astro.props;
+const current = isCurrentBlog(blog, page);
+
+const link = blogLink(blog);
 ---
 
-<li>
-  <a href={blog.link && base + '/' + blog.link}>{blog.title}</a>
+<div>
+  <div class={(current ? 'underline ' : '') + 'flex items-center'}>
+    {
+      blog.sub ? (
+        <Icon name="ic:round-play-arrow" class={'w-5 h-5 hover:cursor-pointer ' + (current && 'rotate-90')} to-expand />
+      ) : (
+        <Icon name="carbon:dot-mark" class="w-5 h-5" />
+      )
+    }
+    <a href={link && base + link} class={link && 'hover:underline'}>{blog.title}</a>
+  </div>
   {
     blog.sub && (
-      <ul class="pl-5 list-disc">
+      <div class={'ml-5 ' + (current ? 'block' : 'hidden')}>
         {blog.sub.map((sub) => {
-          let nBase = '';
-          if (blog.subBase) {
-            nBase = base + '/' + blog.subBase;
-          }
-
-          return <BlogLink blog={sub} base={nBase} />;
+          return <BlogLink blog={sub} base={base} page={page} />;
         })}
-      </ul>
+      </div>
     )
   }
-</li>
+</div>

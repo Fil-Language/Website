@@ -2,7 +2,7 @@
 import Layout from '~/layouts/BlogLayout.astro';
 import { learns } from '~/content/learn/learn.astro';
 import { SITE } from '~/config.mjs';
-import { blogParams } from '~/types';
+import { blogParams, getCurrentBlog } from '~/types';
 
 const { page } = Astro.params;
 
@@ -16,13 +16,11 @@ const meta = {
   dontUseTitleTemplate: true,
 };
 
-const current = learns.find((item) => {
-  return item.params?.page === page;
-});
+const current = getCurrentBlog(learns, page);
 
 const Content = current?.content;
 ---
 
-<Layout blog={learns} meta={meta} page={current?.title} title="Learn" base="/learn">
+<Layout blog={learns} meta={meta} page={current} title="Learn" base="/learn">
   {Content ? <Content /> : 'Content not found'}
 </Layout>

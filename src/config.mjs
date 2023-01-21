@@ -1,4 +1,4 @@
-import defaultImage from './assets/images/default.png';
+import defaultImage from './assets/images/Fil.svg';
 
 const CONFIG = {
   name: 'Fil',
@@ -8,7 +8,7 @@ const CONFIG = {
   trailingSlash: false,
 
   title: 'Fil',
-  description: 'Un langage de programmation pour développer des outils surpuissants',
+  description: 'A programming language to create powerful tools',
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"

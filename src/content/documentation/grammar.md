@@ -1,6 +1,6 @@
 # Grammar
 
-There it is the grammar under BNF :
+Here is the grammar in BNF :
 
 ```bnf
 program ::= module import* ("export"? expr)*
@@ -17,7 +17,7 @@ expr ::= literal
        | identifier
        | calcul
        | function
-       | lambda
+       | lambdas
        | control
        | function_call
        | cast
@@ -85,3 +85,5 @@ function_call_params ::= expr ("," expr)*
 
 cast ::= "(" type ")" expr
 ```
+
+You can find this grammar as a graph [here](https://github.com/Fil-Language/Documentation/blob/master/grammar/grammar.xhtml)
