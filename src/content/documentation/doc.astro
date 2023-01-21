@@ -1,10 +1,6 @@
 ---
 import { BlogProp } from '~/types';
 import { Content as introduction } from './introduction.md';
-import { Content as conventions } from './conventions.md';
-import { Content as control } from './control.md';
-import { Content as functions } from './functions.md';
-import { Content as stl } from './stl.md';
 import { Content as grammar } from './grammar.md';
 
 export const docs: BlogProp[] = [
@@ -19,24 +15,28 @@ export const docs: BlogProp[] = [
       {
         title: 'Conventions',
         params: { page: 'language/conventions' },
-        content: conventions,
+      },
+      {
+        title: 'Variables',
+        params: { page: 'language/variables' },
       },
       {
         title: 'Control structures',
         params: { page: 'language/control-structures' },
-        content: control,
       },
       {
         title: 'Functions',
         params: { page: 'language/functions' },
-        content: functions,
+      },
+      {
+        title: 'Modules',
+        params: { page: 'language/modules' },
       },
     ],
   },
   {
     title: 'STL',
     params: { page: 'stl' },
-    content: stl,
   },
   {
     title: 'Advanced',
