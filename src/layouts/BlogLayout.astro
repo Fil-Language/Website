@@ -3,7 +3,7 @@ import BlogLink from '~/components/widgets/BlogLink.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/BaseLayout.astro';
-import { BlogProp, MetaSEO, isCurrentBlog } from '~/types';
+import { BlogProp, MetaSEO } from '~/types';
 
 export interface Props {
   meta?: MetaSEO;
@@ -24,7 +24,7 @@ if (meta) {
   <Header />
   <main class="flex min-h-screen w-full md:w-3/4 mx-auto flex-col md:flex-row">
     <div class="bg-primary-50 dark:bg-slate-800 pl-2 pr-6 py-4 w-full md:w-1/5 rounded-r md:rounded">
-      {blog && blog.map((item) => <BlogLink base={base} blog={item} current={isCurrentBlog(item, page)} />)}
+      {blog && blog.map((item) => <BlogLink base={base} blog={item} page={page} />)}
     </div>
     <div class="w-5/6 md:w-3/4 mx-auto blog">
       <slot />

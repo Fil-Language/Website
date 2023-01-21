@@ -14,19 +14,24 @@ export const docs: BlogProp[] = [
     content: introduction,
   },
   {
-    title: 'Conventions',
-    params: { page: 'conventions' },
-    content: conventions,
-  },
-  {
-    title: 'Control structures',
-    params: { page: 'control-structures' },
-    content: control,
-  },
-  {
-    title: 'Functions',
-    params: { page: 'functions' },
-    content: functions,
+    title: 'Language',
+    sub: [
+      {
+        title: 'Conventions',
+        params: { page: 'language/conventions' },
+        content: conventions,
+      },
+      {
+        title: 'Control structures',
+        params: { page: 'language/control-structures' },
+        content: control,
+      },
+      {
+        title: 'Functions',
+        params: { page: 'language/functions' },
+        content: functions,
+      },
+    ],
   },
   {
     title: 'STL',
