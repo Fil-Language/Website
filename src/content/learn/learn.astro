@@ -1,12 +1,18 @@
 ---
 import { BlogProp } from '~/types';
 import { Content as introduction } from './introduction.md';
+import { Content as installation } from './installation.md';
 
 export const learns: BlogProp[] = [
   {
     title: 'Introduction',
     params: { page: undefined },
     content: introduction,
+  },
+  {
+    title: 'Installation',
+    params: { page: 'installation' },
+    content: installation,
   },
 ];
 ---

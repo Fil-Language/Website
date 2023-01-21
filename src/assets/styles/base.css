@@ -11,12 +11,28 @@
     @apply text-2xl font-bold
   }
 
+  .blog h2 {
+    @apply text-xl font-bold
+  }
+
   .blog pre {
     @apply text-xs p-2
   }
 
   .blog a {
     @apply text-blue-500 hover:underline
+  }
+
+  .blog ul {
+    @apply ml-5 list-disc
+  }
+
+  .blog ol {
+    @apply ml-5 list-decimal
+  }
+  
+  .blog li {
+    @apply mb-0
   }
 }
 
