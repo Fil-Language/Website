@@ -22,13 +22,10 @@ jobs:
         run: npm run build
 
       - name: Exports files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: appleboy/scp-action@v0.1.4
         with:
-          server: ${{ secrets.ftp_server }}
-          protocol: ftp
-          port: 21
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_password }}
-          local-dir: dist/
-          server-dir: Fil/
-          security: loose
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: dist
+          target: ~/www/Fil
